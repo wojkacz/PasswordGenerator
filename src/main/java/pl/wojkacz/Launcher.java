@@ -21,6 +21,7 @@ public class Launcher extends Application {
         Scene scene = new Scene(root, 1024, 576);
 
         stage.setScene(scene);
+        stage.setResizable(false);
         stage.setTitle("Password Generator");
         stage.show();
     }

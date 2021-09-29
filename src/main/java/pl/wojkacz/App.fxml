@@ -8,12 +8,12 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wojkacz.Controller">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="576.0" prefWidth="1024.0" style="-fx-background-color: #dbdbdb;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.wojkacz.Controller">
    <children>
-      <CheckBox fx:id="specialSymbolsCheckbox" layoutX="449.0" layoutY="317.0" mnemonicParsing="false" text="Special symbols" />
-      <CheckBox fx:id="numbersCheckbox" layoutX="467.0" layoutY="223.0" mnemonicParsing="false" text="Numbers" />
-      <CheckBox fx:id="bigLettersCheckbox" layoutX="463.0" layoutY="256.0" mnemonicParsing="false" text="Big Letters" />
-      <CheckBox fx:id="smallLettersCheckbox" layoutX="457.0" layoutY="288.0" mnemonicParsing="false" text="Small Letters" />
+      <CheckBox fx:id="specialSymbolsCheckbox" layoutX="449.0" layoutY="317.0" mnemonicParsing="false" onAction="#hideErrorLabel" text="Special symbols" />
+      <CheckBox fx:id="numbersCheckbox" layoutX="467.0" layoutY="223.0" mnemonicParsing="false" onAction="#hideErrorLabel" text="Numbers" />
+      <CheckBox fx:id="bigLettersCheckbox" layoutX="463.0" layoutY="256.0" mnemonicParsing="false" onAction="#hideErrorLabel" text="Big Letters" />
+      <CheckBox fx:id="smallLettersCheckbox" layoutX="457.0" layoutY="288.0" mnemonicParsing="false" onAction="#hideErrorLabel" text="Small Letters" />
       <Button fx:id="generateButton" layoutX="444.0" layoutY="467.0" mnemonicParsing="false" onAction="#generatePassword" text="Generate Password" />
       <Label layoutX="337.0" layoutY="390.0" text="! There is no guarantee that password will have each selected." />
       <Label layoutX="306.0" layoutY="407.0" text="Selected options are applied to generator as an option to generate each letter" />
@@ -24,12 +24,17 @@
             <Font name="Bell MT" size="36.0" />
          </font>
       </Label>
-      <TextField fx:id="passwordTextField" layoutX="428.0" layoutY="436.0" />
+      <TextField fx:id="passwordTextField" alignment="CENTER" layoutX="305.0" layoutY="436.0" prefHeight="25.0" prefWidth="413.0" />
       <Slider fx:id="lettersAmountSlider" blockIncrement="1.0" layoutX="432.0" layoutY="197.0" max="32.0" min="8.0" value="8.0" />
       <Label layoutX="453.0" layoutY="180.0" text="Letters Amount" />
       <Label fx:id="amountLabel" layoutX="577.0" layoutY="191.0" prefHeight="27.0" prefWidth="24.0" text="8" textAlignment="RIGHT">
          <font>
             <Font size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorLabel" layoutX="393.0" layoutY="499.0" text="At least 1 option has to be selected!" textFill="RED">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </Label>
    </children>
