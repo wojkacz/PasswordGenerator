@@ -3,6 +3,9 @@ package pl.wojkacz;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class Controller {
 
     @FXML
@@ -88,7 +91,36 @@ public class Controller {
         BigLetters      - 65-90
         SmallLetters    - 97-122
          */
-        return 65;
+
+        int rand = ThreadLocalRandom.current().nextInt(1, 5);
+
+        if(rand == 1 && specialSymbols){
+            rand = ThreadLocalRandom.current().nextInt(1, 5);
+            switch (rand){
+                case 1:
+                    return (char)(33 + ThreadLocalRandom.current().nextInt(0, 15));
+                case 2:
+                    return (char)(58 + ThreadLocalRandom.current().nextInt(0, 7));
+                case 3:
+                    return (char)(91 + ThreadLocalRandom.current().nextInt(0, 6));
+                case 4:
+                    return (char)(123 + ThreadLocalRandom.current().nextInt(0, 3));
+            }
+        }
+
+        else if(rand == 2 && numbers){
+            return (char)(48 + ThreadLocalRandom.current().nextInt(0, 10));
+        }
+
+        else if(rand == 3 && bigLetters){
+            return (char)(65 + ThreadLocalRandom.current().nextInt(0, 26));
+        }
+
+        else if(rand == 4 && smallLetters){
+            return (char)(97 + ThreadLocalRandom.current().nextInt(0, 26));
+        }
+
+        return generateLetter(numbers, bigLetters, smallLetters, specialSymbols);
     }
 
 }
