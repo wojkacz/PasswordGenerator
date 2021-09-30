@@ -3,7 +3,6 @@ package pl.wojkacz;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Controller {

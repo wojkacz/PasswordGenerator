@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -22,7 +23,11 @@ public class Launcher extends Application {
 
         stage.setScene(scene);
         stage.setResizable(false);
-        stage.setTitle("Password Generator");
+        stage.setTitle("Random Password Generator");
+
+        stage.getIcons().add(new Image("/icon.png"));
+        // Icon created by Gregor Cresnar
+
         stage.show();
     }
 
